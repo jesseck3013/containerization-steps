@@ -1,4 +1,4 @@
-# containerize-steps
+# containerization-steps
 The steps to containerize an application
 
 ## Dockerfile explanation
