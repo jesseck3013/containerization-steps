@@ -43,3 +43,11 @@ docker run -p 8080:8080 <image name>:<tag>
 docker tag <image name>:<tag> <username>/<image name>
 docker push <username>/<image name>
 ```
+
+## Bind Mounts
+
+When the example app receives a request with path "/text", it reads the file `./text` as a string, and return this string as a response. During development, it is convenient if the app can directly read files on your host machine without build the image everytime some files get updated. Here docker's bind mount feature comes into play.
+
+```bash
+docker run --mount type=bind,src=<host path>,target=<container path> <image name>:<tag>
+```
