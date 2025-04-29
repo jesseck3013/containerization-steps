@@ -10,4 +10,9 @@ COPY . .
 RUN go build -v -o /usr/local/bin/app ./...
 
 CMD ["app"]
-EXPOSE 8080 # serve as a documentation, include it or not doesn't matter
+
+# serve as a documentation, include it or not doesn't matter
+EXPOSE 8080
+
+
+type=bind,src=.,target=/usr/src/app
