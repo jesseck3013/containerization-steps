@@ -1,0 +1,26 @@
+services:
+  app:
+    image: example-web-app:v0.4
+    container_name: example-web-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - pg
+    environment:
+      - DATABASE_URL=postgres://postgres:password@pg:5432/postgres?sslmode=disable
+    command: app
+
+  pg:
+    image: postgres:latest
+    container_name: postgres_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    volumes:
+      - sql-db:/var/lib/postgresql/data
+
+volumes:
+  sql-db:
