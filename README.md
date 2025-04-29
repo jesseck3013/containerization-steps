@@ -36,3 +36,10 @@ docker build -t <image name>:<tag> .
 # -p 8080:8080 means mapping the container's 8080 port to the localhost's 8080 port
 docker run -p 8080:8080 <image name>:<tag>
 ```
+
+## Push the image to a registry
+
+```bash
+docker tag <image name>:<tag> <username>/<image name>
+docker push <username>/<image name>
+```
